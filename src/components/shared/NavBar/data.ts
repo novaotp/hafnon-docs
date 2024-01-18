@@ -21,6 +21,11 @@ export const data: LinkProps[] = [
         newPage: false
     },
     {
+        label: "About",
+        href: "/about",
+        newPage: false
+    },
+    {
         label: "See on GitHub",
         href: "https://github.com/novaotp/hafnon-docs",
         newPage: true

@@ -16,7 +16,7 @@ export const NavBar = () => {
     return (
         <>
             <nav className="relative w-full h-20 px-10 py-5 flex justify-between items-center bg-white z-50">
-                <p className="font-bold text-xl">Hafnon</p>
+                <Link href="/" onClick={handleMenu} className="font-bold text-xl h-full flex items-center">Hafnon</Link>
                 <button onClick={handleMenu} className="relative h-full aspect-square">
                     {
                         isActive
@@ -27,15 +27,15 @@ export const NavBar = () => {
             </nav>
             <menu
                 ref={menuRef}
-                className={`absolute w-full h-[calc(100%-80px)] -top-[calc(100%-80px)]
-                            ${isActive ? "translate-y-[calc(100%+80px)]" : ""} flex flex-col
-                            bg-white z-40 duration-300 ease-in-out`}
+                className={`absolute w-full h-[calc(100%-80px)] flex flex-col px-10
+                            -top-[calc(100%-80px)] ${isActive ? "translate-y-[calc(100%+80px)]" : ""}
+                            bg-white z-40 duration-300 ease-in-out gap-[10px]`}
             >
                 {
-                    data.map(({ label, href, newPage }) => {
+                    data.map(({ label, href, newPage }, index) => {
                         return (
-                            <li>
-                                <Link href={href} target={newPage ? "_blank" : "_self"}>
+                            <li key={index}>
+                                <Link href={href} onClick={handleMenu} target={newPage ? "_blank" : "_self"}>
                                     {label}
                                 </Link>
                             </li>
