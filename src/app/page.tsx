@@ -8,11 +8,13 @@ export const metadata: Metadata = {
 
 const Page = () => {
     return (
-        <div className="relative w-full flex flex-col items-center p-10 gap-5">
-            <h1 className="font-bold text-5xl">Hafnon</h1>
-            <p className="text-gray-500">A statically-typed, JIT-compiled language designed for optimal performance.</p>
-            <ToDocs />
-            <ToLearn />
+        <div className="relative w-full flex flex-col items-center p-10 gap-10">
+            <h1 className="font-semibold text-4xl text-center">An expressive language for <span className="font-black">developers</span></h1>
+            <p className="text-gray-500 text-center">A statically-typed, JIT-compiled language designed for optimal performance.</p>
+            <div className="relative w-full flex flex-col gap-5">
+                <ToDocs />
+                <ToLearn />
+            </div>
         </div>
     )
 }

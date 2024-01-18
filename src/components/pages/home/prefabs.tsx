@@ -12,7 +12,7 @@ const To = ({ href, label, accent = "primary" }: ToProps) => {
     const color = accent === "primary" ? "bg-purple-700 text-white" : "bg-white text-purple-700 border border-purple-700";
 
     return (
-        <Link href={href} className={`relative w-4/5 h-[60px] ${color} uppercase flex justify-center items-center text-lg`}>
+        <Link href={href} className={`relative w-full h-[40px] ${color} uppercase flex justify-center items-center text-md`}>
             {label}
         </Link>
     )
