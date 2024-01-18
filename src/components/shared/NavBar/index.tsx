@@ -1,7 +1,7 @@
 "use client";
 
 import { MenuRounded, CloseRounded } from "@mui/icons-material";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { data } from "./data";
 
@@ -13,16 +13,22 @@ export const NavBar = () => {
         setIsActive(prev => !prev);
     }
 
+    const closeMenu = () => {
+        setIsActive(false);
+    }
+
+    const RenderedIcon = useMemo(() => {
+        return isActive ? CloseRounded : MenuRounded;
+    }, [isActive])
+
     return (
         <>
             <nav className="relative w-full h-20 px-10 py-5 flex justify-between items-center bg-white z-50">
-                <Link href="/" onClick={handleMenu} className="font-bold text-xl h-full flex items-center">Hafnon</Link>
+                <Link href="/" onClick={closeMenu} className="font-bold text-xl h-full flex items-center">
+                    Hafnon
+                </Link>
                 <button onClick={handleMenu} className="relative h-full aspect-square">
-                    {
-                        isActive
-                            ? <CloseRounded className="text-3xl" />
-                            : <MenuRounded className="text-3xl" />
-                    }
+                    <RenderedIcon className="text-3xl" />
                 </button>
             </nav>
             <menu
@@ -35,7 +41,7 @@ export const NavBar = () => {
                     data.map(({ label, href, newPage }, index) => {
                         return (
                             <li key={index}>
-                                <Link href={href} onClick={handleMenu} target={newPage ? "_blank" : "_self"}>
+                                <Link href={href} onClick={closeMenu} target={newPage ? "_blank" : "_self"}>
                                     {label}
                                 </Link>
                             </li>
