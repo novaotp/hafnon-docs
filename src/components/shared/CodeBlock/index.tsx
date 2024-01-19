@@ -30,7 +30,7 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
 
     return (
         <div className="relative bg-gray-700 w-full flex flex-col items-center justify-start">
-            <div className="relative w-full h-12 mb-[10px] border-b-2 border-white">
+            <div className="relative w-full h-12 border-b-2 border-white">
                 <div className="relative w-full h-full px-5 flex justify-between items-center">
                     <span className="text-slate-200">Hafnon</span>
                     <button className="relative w-6 aspect-square bg-none border-none" onClick={handleCopy}>

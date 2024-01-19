@@ -17,7 +17,7 @@ const Page = () => {
                 <Chapter.Paragraph>
                     Variables are used to store data that can be used in your code.
 
-                    You can declare a variable by putting a type, such as <Chapter.InlineCode>int</Chapter.InlineCode>, followed by a name, such as <Chapter.InlineCode>x</Chapter.InlineCode>, and then you can assign a value to it.
+                    You can declare a variable by putting a type, such as <Chapter.InlineCode>int</Chapter.InlineCode> , followed by a name, such as <Chapter.InlineCode>x</Chapter.InlineCode> , and then you can assign a value to it.
                 </Chapter.Paragraph>
                 <Chapter.Code filename="/variables.haf" />
                 <Block.Information>All variables are immutable by default in Hafnon.</Block.Information>
