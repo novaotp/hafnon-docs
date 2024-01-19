@@ -9,18 +9,36 @@ export const metadata: Metadata = {
 
 const Page = () => {
     return (
-        <div className="relative w-full flex flex-col p-10">
-            <h1 className="font-semibold text-4xl mb-10">Basics</h1>
+        <div className="relative w-full flex flex-col p-10 gap-10">
+            <h1 className="font-semibold text-4xl">Basics</h1>
             <p className="text-justify">In this section of the Learn guide, we'll cover the parts to make you write code on your own.</p>
             <Chapter>
                 <Chapter.Title urlId="variables">Variables</Chapter.Title>
                 <Chapter.Paragraph>
                     Variables are used to store data that can be used in your code.
 
+                    <br /><br />
+
                     You can declare a variable by putting a type, such as <Chapter.InlineCode>int</Chapter.InlineCode> , followed by a name, such as <Chapter.InlineCode>x</Chapter.InlineCode> , and then you can assign a value to it.
                 </Chapter.Paragraph>
-                <Chapter.Code filename="/variables.haf" />
+                <Chapter.Code filename="/variables/immutable.haf" />
                 <Block.Information>All variables are immutable by default in Hafnon.</Block.Information>
+                <Chapter.Paragraph>
+                    If you'd like to make a variable mutable, use the <Chapter.InlineCode>mutable</Chapter.InlineCode> keyword.
+                </Chapter.Paragraph>
+                <Chapter.Code filename="/variables/mutable.haf" />
+            </Chapter>
+            <Chapter>
+                <Chapter.Title urlId="variables">Comments</Chapter.Title>
+                <Chapter.Paragraph>
+                    Comments are text that are not taken into account when compiling the source code.
+
+                    <br /><br />
+
+                    Here how you can add comments to your code :
+                </Chapter.Paragraph>
+                <Chapter.Code filename="/comments/singleline.haf" />
+                <Chapter.Code filename="/comments/multiline.haf" />
             </Chapter>
             <NextStep label="Advanced foundations" href="/learn/advanced" />
         </div>
