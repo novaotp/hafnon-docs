@@ -2,12 +2,16 @@
 
 import { useMemo, useRef, useState } from 'react';
 import { ContentCopyRounded, VerifiedRounded } from '@mui/icons-material';
+import { useCodeSync } from '@/libs/hooks/useCode';
 
 interface CodeBlockProps {
-    code: string;
+    /** The name of the file in `/src/code-samples`. */
+    filename: string;
 }
 
-export const CodeBlock = ({ code }: CodeBlockProps) => {
+export const CodeBlock = ({ filename }: CodeBlockProps) => {
+    const code = useCodeSync(filename);
+    
     const codeRef = useRef<HTMLPreElement>(null);
     const [hasCopied, setHasCopied] = useState<boolean>(false);
 
@@ -36,7 +40,7 @@ export const CodeBlock = ({ code }: CodeBlockProps) => {
             </div>
             <div className="relative p-5 w-full flex items-center justify-start">
                 <pre ref={codeRef} className="relative w-full text-slate-200 overflow-x-auto">
-                    {code}
+                    { code ?? 'Loading...' }
                 </pre>
             </div>
         </div>
