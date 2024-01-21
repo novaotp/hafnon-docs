@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ContentCopyRounded, VerifiedRounded } from '@mui/icons-material';
-import { useCode } from '@/libs/hooks/useCode/server';
+import { fetchCode } from '@/components/shared/CodeBlock/server';
 
 interface CodeBlockProps {
     /** The name of the file in `/src/code-samples`. */
@@ -15,8 +15,12 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
     const [content, setContent] = useState<string | undefined>(undefined);
 
     useEffect(() => {
-        const fileContents = useCode(filename);
-        setContent(fileContents);
+        const run = async () => {
+            const fileContents = await fetchCode(filename);
+            setContent(fileContents);
+        }
+
+        run();
     }, [filename])
 
     const handleCopy = async () => {
