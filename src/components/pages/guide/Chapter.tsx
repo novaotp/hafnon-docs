@@ -1,4 +1,3 @@
-import { CodeBlock } from "@/components/shared/CodeBlock"
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -6,11 +5,7 @@ const Paragraph = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export const InlineCode = ({ children }: { children: string }) => {
-    return (
-        <span className="bg-gray-700 text-white px-[8px] text-sm rounded-md">{children}</span>
-    )
-}
+
 
 export const Chapter = ({ children, title, urlId }: { children: React.ReactNode, title: string, urlId: string }) => {
     return (
@@ -22,6 +17,3 @@ export const Chapter = ({ children, title, urlId }: { children: React.ReactNode,
 }
 
 Chapter.Paragraph = Paragraph;
-Chapter.InlineCode = InlineCode;
-/** An alias for {@link CodeBlock} */
-Chapter.Code = CodeBlock;

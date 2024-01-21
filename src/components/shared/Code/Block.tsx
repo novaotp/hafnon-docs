@@ -1,27 +1,15 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { ContentCopyRounded, VerifiedRounded } from '@mui/icons-material';
-import { fetchCode } from '@/components/shared/CodeBlock/server';
 
 interface CodeBlockProps {
-    /** The name of the file in `/src/code-samples`. */
-    filename: string;
+    children: string;
 }
 
-export const CodeBlock = ({ filename }: CodeBlockProps) => {
+export const CodeBlock = ({ children }: CodeBlockProps) => {
     const codeRef = useRef<HTMLPreElement>(null);
     const [hasCopied, setHasCopied] = useState<boolean>(false);
-    const [content, setContent] = useState<string | undefined>(undefined);
-
-    useEffect(() => {
-        const run = async () => {
-            const fileContents = await fetchCode(filename);
-            setContent(fileContents);
-        }
-
-        run();
-    }, [filename])
 
     const handleCopy = async () => {
         if (!codeRef.current) return;
@@ -49,7 +37,7 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
             </div>
             <div className="relative p-5 w-full flex items-center justify-start">
                 <pre ref={codeRef} className="relative w-full text-slate-200 overflow-x-auto">
-                    { content ?? "" }
+                    {children}
                 </pre>
             </div>
         </div>

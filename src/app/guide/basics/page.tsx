@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { Chapter, NextStep } from "@/components/pages/guide";
 import { Block } from "@/components/shared/Block";
+import { CodeBlock } from "@/components/shared/Code/Block";
+import { Code } from "@/components/shared/Code";
 
 export const metadata: Metadata = {
     title: 'Basics | Hafnon',
@@ -18,14 +20,18 @@ const Page = () => {
 
                     <br /><br />
 
-                    You can declare a variable by putting a type, such as <Chapter.InlineCode>int</Chapter.InlineCode> , followed by a name, such as <Chapter.InlineCode>x</Chapter.InlineCode> , and then you can assign a value to it.
+                    You can declare a variable by putting a type, such as <Code.Inline>int</Code.Inline> , followed by a name, such as <Code.Inline>x</Code.Inline> , and then you can assign a value to it.
                 </Chapter.Paragraph>
-                <Chapter.Code filename="/variables/immutable.haf" />
+                <Code.Block>
+                    int x = 0;
+                </Code.Block>
                 <Block.Information>All variables are immutable by default in Hafnon.</Block.Information>
                 <Chapter.Paragraph>
-                    If you&apos;d like to make a variable mutable, use the <Chapter.InlineCode>mutable</Chapter.InlineCode> keyword.
+                    If you&apos;d like to make a variable mutable, use the <Code.Inline>mutable</Code.Inline> keyword.
                 </Chapter.Paragraph>
-                <Chapter.Code filename="/variables/mutable.haf" />
+                <Code.Block>
+                    mutable int x = 0;
+                </Code.Block>
             </Chapter>
             <Chapter title="Comments" urlId="comments">
                 <Chapter.Paragraph>
@@ -35,8 +41,18 @@ const Page = () => {
 
                     Here how you can add comments to your code :
                 </Chapter.Paragraph>
-                <Chapter.Code filename="/comments/singleline.haf" />
-                <Chapter.Code filename="/comments/multiline.haf" />
+                <Code.Block>
+                    // This is a single-line comment
+                </Code.Block>
+                <Code.Block>
+                {`/**
+
+This is a multi-line comment.
+
+It still works here !
+
+*/`}
+                </Code.Block>
             </Chapter>
             <NextStep label="Advanced foundations" href="/learn/advanced" />
         </div>
