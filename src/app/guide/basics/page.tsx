@@ -11,7 +11,7 @@ const Page = () => {
     return (
         <div className="relative w-full flex flex-col gap-10">
             <h1 className="font-semibold text-4xl">Basics</h1>
-            <p className="text-justify">In this section of the Learn guide, we'll cover the parts to make you write code on your own.</p>
+            <p className="text-justify">In this section of the Learn guide, we&apos;ll cover the parts to make you write code on your own.</p>
             <Chapter title="Variables" urlId="variables">
                 <Chapter.Paragraph>
                     Variables are used to store data that can be used in your code.
@@ -23,7 +23,7 @@ const Page = () => {
                 <Chapter.Code filename="/variables/immutable.haf" />
                 <Block.Information>All variables are immutable by default in Hafnon.</Block.Information>
                 <Chapter.Paragraph>
-                    If you'd like to make a variable mutable, use the <Chapter.InlineCode>mutable</Chapter.InlineCode> keyword.
+                    If you&apos;d like to make a variable mutable, use the <Chapter.InlineCode>mutable</Chapter.InlineCode> keyword.
                 </Chapter.Paragraph>
                 <Chapter.Code filename="/variables/mutable.haf" />
             </Chapter>
