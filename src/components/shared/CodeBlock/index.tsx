@@ -1,8 +1,8 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ContentCopyRounded, VerifiedRounded } from '@mui/icons-material';
-import { useCodeSync } from '@/libs/hooks/useCode';
+import { useCode } from '@/libs/hooks/useCode/server';
 
 interface CodeBlockProps {
     /** The name of the file in `/src/code-samples`. */
@@ -10,10 +10,14 @@ interface CodeBlockProps {
 }
 
 export const CodeBlock = ({ filename }: CodeBlockProps) => {
-    const code = useCodeSync(filename);
-    
     const codeRef = useRef<HTMLPreElement>(null);
     const [hasCopied, setHasCopied] = useState<boolean>(false);
+    const [content, setContent] = useState<string | undefined>(undefined);
+
+    useEffect(() => {
+        const fileContents = useCode(filename);
+        setContent(fileContents);
+    }, [filename])
 
     const handleCopy = async () => {
         if (!codeRef.current) return;
@@ -41,7 +45,7 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
             </div>
             <div className="relative p-5 w-full flex items-center justify-start">
                 <pre ref={codeRef} className="relative w-full text-slate-200 overflow-x-auto">
-                    { code ?? "" }
+                    { content ?? "" }
                 </pre>
             </div>
         </div>
