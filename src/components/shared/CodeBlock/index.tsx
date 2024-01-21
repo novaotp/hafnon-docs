@@ -15,13 +15,12 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
     const codeRef = useRef<HTMLPreElement>(null);
     const [hasCopied, setHasCopied] = useState<boolean>(false);
 
-    const handleCopy = async () => {
+    const handleCopy = () => {
         if (!codeRef.current) return;
 
+        navigator.clipboard.writeText(codeRef.current.innerHTML);
+
         setHasCopied(true);
-
-        await navigator.clipboard.writeText(codeRef.current.innerHTML);
-
         setTimeout(() => setHasCopied(false), 1200);
     }
 
@@ -41,7 +40,7 @@ export const CodeBlock = ({ filename }: CodeBlockProps) => {
             </div>
             <div className="relative p-5 w-full flex items-center justify-start">
                 <pre ref={codeRef} className="relative w-full text-slate-200 overflow-x-auto">
-                    { code ?? "" }
+                    { code ?? 'Loading...' }
                 </pre>
             </div>
         </div>

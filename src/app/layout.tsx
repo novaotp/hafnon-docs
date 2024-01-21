@@ -1,16 +1,21 @@
 import './globals.css';
 import { poppins } from './fonts';
-import { Navbar } from '@/components/shared/Navbar';
-import { ChildrenProps } from '@/types';
+import { NavBar } from '@/components/shared/NavBar';
+import { Footer } from '@/components/shared/Footer';
 
-const RootLayout = ({ children }: ChildrenProps) => {
+const RootLayout = ({
+    children,
+}: {
+    children: React.ReactNode
+}) => {
     return (
         <html lang="en">
-            <body className={`${poppins.className} flex flex-col overflow-y-scroll`}>
-                <Navbar />
-                <main className="relative w-full max-w-7xl mx-auto mt-20 flex-grow flex">
+            <body className={`${poppins.className} flex flex-col`}>
+                <NavBar />
+                <main className="flex-grow">
                     {children}
                 </main>
+                <Footer />
             </body>
         </html>
     )
