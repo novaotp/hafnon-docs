@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    output: 'build',
+    output: 'export',
     basePath: '/hafnon-docs',
     images: {
         unoptimized: true
