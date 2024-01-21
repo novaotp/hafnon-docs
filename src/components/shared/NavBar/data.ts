@@ -7,12 +7,7 @@ interface LinkProps {
 export const data: LinkProps[] = [
     {
         label: "Docs",
-        href: "/docs",
-        newPage: false
-    },
-    {
-        label: "Learn",
-        href: "/learn",
+        href: "/guide",
         newPage: false
     },
     {
