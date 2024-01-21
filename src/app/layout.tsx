@@ -1,6 +1,6 @@
 import './globals.css';
 import { poppins } from './fonts';
-import { Navbar } from '@/components/shared/Navbar';
+import { Navbar } from '@/components/shared/NavBar';
 import { ChildrenProps } from '@/types';
 
 const RootLayout = ({ children }: ChildrenProps) => {
