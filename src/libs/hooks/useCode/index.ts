@@ -12,13 +12,9 @@ export const useCodeSync = (filename: string): string | undefined => {
     const [content, setContent] = useState<string | undefined>(undefined);
 
     useEffect(() => {
-        const run = async () => {
-            const fileContents = await useCode(filename);
-            setContent(fileContents);
-        }
-
-        run();
-    }, [])
+        const fileContents = useCode(filename);
+        setContent(fileContents);
+    }, [filename])
 
     return content;
 }
