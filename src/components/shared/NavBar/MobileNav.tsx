@@ -30,7 +30,7 @@ export const MobileNavbar = () => {
 
     return (
         <>
-            <nav className={`lg:hidden fixed w-full h-20 px-10 py-5 flex justify-between items-center bg-white z-50 ease-in-out ${isActive ? "shadow-lg delay-500 duration-200" : "shadow-none delay-0 duration-200" }`}>
+            <nav className={`lg:hidden fixed w-full h-[60px] px-10 py-5 flex justify-between items-center bg-white z-50 ease-in-out ${isActive ? "shadow-lg delay-500 duration-200" : "shadow-none delay-0 duration-200" }`}>
                 <Link href="/" onClick={closeMenu} className="font-bold text-xl h-full flex items-center">
                     Hafnon
                 </Link>

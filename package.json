@@ -1,6 +1,6 @@
 {
   "name": "hafnon-docs",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "private": false,
   "scripts": {
     "dev": "next dev",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
     return (
-        <div className="relative w-full flex flex-col gap-10">
+        <div className="relative w-full flex flex-col">
             <h1 className="font-semibold text-4xl">Basics</h1>
             <p className="text-justify">In this section of the Learn guide, we&apos;ll cover the parts to make you write code on your own.</p>
             <Chapter title="Variables" urlId="variables">
@@ -42,7 +42,7 @@ const Page = () => {
                     Here how you can add comments to your code :
                 </Chapter.Paragraph>
                 <Code.Block>
-                    // This is a single-line comment
+                    {`// This is a single-line comment`}
                 </Code.Block>
                 <Code.Block>
                 {`/**
